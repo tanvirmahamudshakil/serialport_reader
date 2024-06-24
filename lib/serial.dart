@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_serial_communication/flutter_serial_communication.dart';
 import 'package:flutter_serial_communication/models/device_info.dart';
+import 'package:libserialport/libserialport.dart';
 
 class SerialPage extends StatefulWidget {
   const SerialPage({super.key});
@@ -20,25 +21,35 @@ class _SerialPageState extends State<SerialPage> {
   @override
   void initState() {
     super.initState();
+    final name = SerialPort.availablePorts.first;
+    final port = SerialPort(name);
+    if (!port.openReadWrite()) {
+      print(SerialPort.lastError);
+    }
 
-    _flutterSerialCommunicationPlugin
-        .getSerialMessageListener()
-        .receiveBroadcastStream()
-        .listen((event) {
-          setState(() {
-            receiveMessage = event.toString();
-          });
-      debugPrint("Received From Native:  $event");
+    final reader = SerialPortReader(port);
+    reader.stream.listen((data) {
+      print('received: $data');
     });
-
-    _flutterSerialCommunicationPlugin
-        .getDeviceConnectionListener()
-        .receiveBroadcastStream()
-        .listen((event) {
-      setState(() {
-        isConnected = event;
-      });
-    });
+    //
+    // _flutterSerialCommunicationPlugin
+    //     .getSerialMessageListener()
+    //     .receiveBroadcastStream()
+    //     .listen((event) {
+    //       setState(() {
+    //         receiveMessage = event.toString();
+    //       });
+    //   debugPrint("Received From Native:  $event");
+    // });
+    //
+    // _flutterSerialCommunicationPlugin
+    //     .getDeviceConnectionListener()
+    //     .receiveBroadcastStream()
+    //     .listen((event) {
+    //   setState(() {
+    //     isConnected = event;
+    //   });
+    // });
   }
 
   _getAllConnectedDevicedButtonPressed() async {

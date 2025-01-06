@@ -195,6 +195,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
   }
 
   Widget log({required String data}) {
+    print("result data ${data}");
     return Expanded(
       child: Scrollbar(
         child: SingleChildScrollView(
@@ -259,7 +260,6 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                 button(
                     name: "Open",
                     onPress: () {
-                      print("baundRate ${selectedBaudRate}");
                       serialCommunication.openPort(dataFormat: format, serialPort: selectedPort, baudRate: selectedBaudRate);
                     }),
                 button(

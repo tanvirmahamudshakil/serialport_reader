@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:serial_communication/serial_communication.dart';
+import 'package:flutter_serial/flutter_serial.dart';
 
 class RS323SerialPage extends StatefulWidget {
   const RS323SerialPage({super.key});
@@ -14,11 +13,11 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
   String logData = "";
   String receivedData = "";
   String selectedPort = "Select Port";
-  int selectedBaudRate = SerialCommunication().baudRateList.first;
+  int selectedBaudRate = FlutterSerial().baudRateList.first;
   List<String>? serialList = [];
   DataFormat format = DataFormat.ASCII;
-  SerialCommunication serialCommunication = SerialCommunication();
 
+  FlutterSerial serialCommunication = FlutterSerial();
   @override
   void initState() {
     super.initState();

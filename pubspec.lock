@@ -79,6 +79,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  flutter_serial:
+    dependency: "direct main"
+    description:
+      name: flutter_serial
+      sha256: b4d08ce2d3dd499747636220b5e64a2107f3b704b4f2e27e11d526197d33d566
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -209,15 +217,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  serial_communication:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "9e3036d1c9ecc89a87be71aaa9bad13bdfc56e61"
-      url: "https://github.com/tanvirmahamudshakil/serial_communication.git"
-    source: git
-    version: "0.0.2"
   sky_engine:
     dependency: transitive
     description: flutter

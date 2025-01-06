@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:serialport/rs323.serial.dart';
 import 'package:serialport/serial.dart';
 import 'package:serialport/serial2.dart';
 import 'package:serialport/serialport3.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SerialPortReader(),
+      home: RS323SerialPage(),
     );
   }
 }

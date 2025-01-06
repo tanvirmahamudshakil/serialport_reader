@@ -17,6 +17,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
 
   Future getSerialDevice() async {
     listDevice = await _flutterSerialCommunicationPlugin.getAvailableDevices();
+    setState(() {});
   }
 
   void disconnectSerial() async {
@@ -53,6 +54,12 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
       appBar: AppBar(title: Text("RS323 Serial Port")),
       body: Column(
         children: [
+          MaterialButton(
+              color: Colors.green,
+              onPressed: () {
+                getSerialDevice();
+              },
+              child: Text("Get Serial Port")),
           DropdownButton<DeviceInfo>(
             items: listDevice.map((DeviceInfo device) {
               return DropdownMenuItem<DeviceInfo>(

@@ -212,10 +212,11 @@ packages:
   serial_communication:
     dependency: "direct main"
     description:
-      name: serial_communication
-      sha256: d00689a1c47500299feafc0aed1cf180683ecc120f8d3c2b38afc7be2423142a
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "607eabfbc63d50d0b0bca904cfb01c5a9e760ba4"
+      url: "https://github.com/tanvirmahamudshakil/serial_communication.git"
+    source: git
     version: "0.0.2"
   sky_engine:
     dependency: transitive

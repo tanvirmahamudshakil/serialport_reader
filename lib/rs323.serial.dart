@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:serial_communication/serial_communication.dart';
 
@@ -80,7 +81,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
             children: [
               Text(
                 "Tap to setup",
-                
+                style: mediumStyle.apply(fontSizeFactor: 1),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -90,11 +91,11 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                     RichText(
                       text: TextSpan(
                         text: 'Device: \n',
-                        
+                        style: mediumStyle.apply(color: Colors.blue),
                         children: <TextSpan>[
                           TextSpan(
                             text: selectedPort,
-                            
+                            style: mediumStyle.apply(color: Colors.black54),
                           )
                         ],
                       ),
@@ -102,11 +103,11 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                     RichText(
                       text: TextSpan(
                         text: 'Baud Rate: \n',
-                
+                        style: mediumStyle.apply(color: Colors.blue),
                         children: <TextSpan>[
                           TextSpan(
                             text: "$selectedBaudRate",
-                           
+                            style: mediumStyle.apply(color: Colors.black54),
                           )
                         ],
                       ),
@@ -117,11 +118,13 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
               RichText(
                 text: TextSpan(
                   text: 'Data Format: ',
-                 
+                  style: mediumStyle.apply(color: Colors.blue),
                   children: <TextSpan>[
                     TextSpan(
                       text: format.name,
-                      
+                      style: mediumStyle.apply(
+                        color: Colors.black54,
+                      ),
                     )
                   ],
                 ),
@@ -143,7 +146,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
               children: [
                 const Text(
                   "Received Data",
-                  
+                  style: mediumStyle,
                 ),
                 const SizedBox(
                   height: 10,
@@ -159,7 +162,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
               children: [
                 const Text(
                   "Operation Log",
-                  
+                  style: mediumStyle,
                 ),
                 const SizedBox(
                   height: 10,
@@ -247,7 +250,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
             const SizedBox(
               height: 10,
             ),
-            Text("OPERATION"),
+            Text("OPERATION", style: mediumStyle.apply(color: Colors.black54)),
             const SizedBox(
               height: 10,
             ),
@@ -287,7 +290,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
           onPressed: onPress,
           child: Text(
             name,
-            
+            style: mediumStyle,
           )),
     );
   }
@@ -336,12 +339,12 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                                   borderRadius: BorderRadius.circular(10),
                                   hint: Text(
                                     selectedPort,
-                                    
+                                    style: mediumStyle.apply(fontSizeFactor: 0.9),
                                   ),
                                   items: serialList!.map((String? value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
-                                      child: Text(value!, ),
+                                      child: Text(value!, style: mediumStyle),
                                     );
                                   }).toList(),
                                   onChanged: (p0) {
@@ -357,13 +360,13 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                                   borderRadius: BorderRadius.circular(10),
                                   hint: Text(
                                     selectedBaudRate.toString(),
-                                    
+                                    style: mediumStyle.apply(fontSizeFactor: 0.9),
                                   ),
                                   menuMaxHeight: 400.0,
                                   items: serialCommunication.baudRateList.map((int? value) {
                                     return DropdownMenuItem<int>(
                                       value: value,
-                                      child: Text(value.toString(), ),
+                                      child: Text(value.toString(), style: mediumStyle),
                                     );
                                   }).toList(),
                                   onChanged: (p0) {
@@ -443,7 +446,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
           Text(
             title,
             textAlign: TextAlign.left,
-           
+            style: mediumStyle,
           ),
           const SizedBox(
             height: 10,
@@ -465,3 +468,8 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
     );
   }
 }
+
+const mediumStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);

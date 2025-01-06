@@ -214,7 +214,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "607eabfbc63d50d0b0bca904cfb01c5a9e760ba4"
+      resolved-ref: "9e3036d1c9ecc89a87be71aaa9bad13bdfc56e61"
       url: "https://github.com/tanvirmahamudshakil/serial_communication.git"
     source: git
     version: "0.0.2"

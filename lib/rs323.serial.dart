@@ -85,6 +85,12 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
                 deviceConnectStatus();
               },
               child: Text("deviceConnectStatus")),
+          MaterialButton(
+              color: Colors.green,
+              onPressed: () {
+                disconnectSerial();
+              },
+              child: Text("disconnect")),
         ],
       ),
     );

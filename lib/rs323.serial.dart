@@ -17,6 +17,7 @@ class _RS323SerialPageState extends State<RS323SerialPage> {
 
   Future getSerialDevice() async {
     listDevice = await _flutterSerialCommunicationPlugin.getAvailableDevices();
+    print("list device ${listDevice.length}");
     setState(() {});
   }
 

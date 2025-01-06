@@ -38,7 +38,7 @@ dependencies:
 #  flutter_serial_communication: ^0.2.5
 #  libserialport: ^0.3.0+1
 #  usb_serial: ^0.5.2
-  flutter_serial_communication: ^0.2.8
+  serial_communication: ^0.0.2
   display_sdk_flutter:
     git:
       url: https://github.com/tanvirmahamudshakil/display_sdk_flutter.git

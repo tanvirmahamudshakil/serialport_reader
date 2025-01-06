@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:serialport/rs323.serial.dart';
 import 'package:serialport/serial.dart';
@@ -5,6 +7,7 @@ import 'package:serialport/serial2.dart';
 import 'package:serialport/serialport3.dart';
 
 void main() {
+  DartPluginRegistrant.ensureInitialized();
   runApp(const MyApp());
 }
 

@@ -6,6 +6,8 @@ import 'package:serialport/serial.dart';
 import 'package:serialport/serial2.dart';
 import 'package:serialport/serialport3.dart';
 
+import 'rs323.serial2.dart';
+
 void main() {
   DartPluginRegistrant.ensureInitialized();
   runApp(const MyApp());
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: RS323SerialPage(),
+      home: Rs323Serial2Page(),
     );
   }
 }

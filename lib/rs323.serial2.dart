@@ -13,12 +13,16 @@ class Rs323Serial2Page extends StatefulWidget {
 class _Rs323Serial2PageState extends State<Rs323Serial2Page> {
   final _flutterSerialCommunicationPlugin = FlutterSerialCommunication();
 
+  List<String> deviceList = [];
+
   Future getSerialList() async {
     List<DeviceInfo> availableDevices = await _flutterSerialCommunicationPlugin.getAvailableDevices();
 
     for (var element in availableDevices) {
+      deviceList.add(element.toJson());
       print(element.toJson());
     }
+    setState(() {});
   }
 
   @override
@@ -31,6 +35,8 @@ class _Rs323Serial2PageState extends State<Rs323Serial2Page> {
         children: [
           MaterialButton(
             onPressed: () {
+              deviceList.clear();
+              setState(() {});
               getSerialList();
             },
             child: Text("Serial Get"),

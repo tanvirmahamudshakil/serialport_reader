@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_libserialport/flutter_libserialport.dart';
+
+import 'package:flutter_serial_communication/flutter_serial_communication.dart';
+import 'package:flutter_serial_communication/models/device_info.dart';
 
 class Rs323Serial2Page extends StatefulWidget {
   const Rs323Serial2Page({super.key});
@@ -9,11 +11,13 @@ class Rs323Serial2Page extends StatefulWidget {
 }
 
 class _Rs323Serial2PageState extends State<Rs323Serial2Page> {
+  final _flutterSerialCommunicationPlugin = FlutterSerialCommunication();
+
   Future getSerialList() async {
-    final devices = SerialPort.availablePorts;
-    ;
-    for (var element in devices) {
-      print(element);
+    List<DeviceInfo> availableDevices = await _flutterSerialCommunicationPlugin.getAvailableDevices();
+
+    for (var element in availableDevices) {
+      print(element.toJson());
     }
   }
 

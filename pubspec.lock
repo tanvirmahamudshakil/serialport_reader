@@ -225,6 +225,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  serialport_plus:
+    dependency: "direct main"
+    description:
+      name: serialport_plus
+      sha256: a33f2d242eb5e167861fb3ce896cfb94b42fbbae062f71920545b2e18928f1a4
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   sky_engine:
     dependency: transitive
     description: flutter

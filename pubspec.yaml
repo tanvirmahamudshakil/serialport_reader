@@ -46,6 +46,7 @@ dependencies:
     git:
       url: https://github.com/tanvirmahamudshakil/display_sdk_flutter.git
   flutter_serial_communication: ^0.2.8
+  serialport_plus: ^0.1.0
 
 dev_dependencies:
   flutter_test:

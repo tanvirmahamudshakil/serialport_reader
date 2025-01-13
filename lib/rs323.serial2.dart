@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:usb_serial/usb_serial.dart';
+import 'package:flutter_libserialport/flutter_libserialport.dart';
 
 class Rs323Serial2Page extends StatefulWidget {
   const Rs323Serial2Page({super.key});
@@ -10,9 +10,10 @@ class Rs323Serial2Page extends StatefulWidget {
 
 class _Rs323Serial2PageState extends State<Rs323Serial2Page> {
   Future getSerialList() async {
-    final devices = await UsbSerial.listDevices();
+    final devices = SerialPort.availablePorts;
+    ;
     for (var element in devices) {
-      print(element.serial);
+      print(element);
     }
   }
 
@@ -24,9 +25,12 @@ class _Rs323Serial2PageState extends State<Rs323Serial2Page> {
       ),
       body: Column(
         children: [
-          MaterialButton(onPressed: () {
-            getSerialList();
-          },child: Text("Serial Get"),)
+          MaterialButton(
+            onPressed: () {
+              getSerialList();
+            },
+            child: Text("Serial Get"),
+          )
         ],
       ),
     );
